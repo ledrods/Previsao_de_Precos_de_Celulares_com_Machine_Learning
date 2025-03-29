@@ -19,8 +19,9 @@ st.markdown("Navegue pelas abas na barra lateral para ver a análise exploratór
 st.subheader("📌 Resumo Visual do Projeto")
 image_path = "reports/resumo.png"
 
-try:
-    image = Image.open(image_path)
-    st.image(image, caption="📊 Infográfico com os Principais Insights do Projeto", use_column_width=True)
-except Exception as e:
-    st.warning(f"⚠️ Não foi possível carregar a imagem. Erro: {e}")
+with st.spinner("📷 Carregando imagem..."):
+    try:
+        image = Image.open(image_path)
+        st.image(image, caption="📊 Infográfico com os Principais Insights do Projeto", use_container_width=True)
+    except Exception as e:
+        st.warning(f"⚠️ Não foi possível carregar a imagem. Erro: {e}")

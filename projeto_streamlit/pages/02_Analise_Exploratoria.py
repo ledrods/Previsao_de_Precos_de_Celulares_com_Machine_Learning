@@ -3,14 +3,17 @@ import pandas as pd
 from PIL import Image
 import os
 
-# Título da aplicação
+# Configuração inicial
+st.set_page_config(page_title="Previsão de Preços de Celulares", layout="wide")
+
+# --- 📊 ANÁLISE EXPLORATÓRIA ---
 st.title("📊 Análise Exploratória de Dados")
 
 df = pd.read_csv("data/celular2025_clean.csv") 
 st.write("Aqui estão algumas estatísticas do conjunto de dados:")
 st.dataframe(df.describe())
 
-# Garantir que a coluna de marca exista
+# Verificar coluna de marca
 coluna_marca = None
 possiveis_nomes = ["Company Name"]
 for nome in possiveis_nomes:
@@ -37,25 +40,27 @@ else:
 
     st.markdown("---")
 
+# --- 📊 MATRIZ DE CORRELAÇÃO ---
 image1_path = "reports/matriz_correlacao_antiga.png"
 image2_path = "reports/nova_matriz_correlacao.png"
 
 if os.path.exists(image1_path) and os.path.exists(image2_path):
-    image1 = Image.open(image1_path).convert("RGB")
-    image2 = Image.open(image2_path).convert("RGB")
+    with st.spinner("📷 Carregando imagens das matrizes de correlação..."):
+        image1 = Image.open(image1_path).convert("RGB")
+        image2 = Image.open(image2_path).convert("RGB")
 
-    # Criar duas colunas no Streamlit para exibir as imagens lado a lado
-    col1, col2 = st.columns(2)
+        # Criar duas colunas para exibir as imagens lado a lado
+        col1, col2 = st.columns(2)
 
-    with col1:
-        st.image(image1, caption="📌 Matriz de Correlação - Antes da Limpeza", use_column_width=True)
+        with col1:
+            st.image(image1, caption="📌 Matriz de Correlação - Antes da Limpeza", use_container_width=True)
 
-    with col2:
-        st.image(image2, caption="✅ Matriz de Correlação - Após a Limpeza", use_column_width=True)
+        with col2:
+            st.image(image2, caption="✅ Matriz de Correlação - Após a Limpeza", use_container_width=True)
 
-    # Explicação após as imagens
+    # Explicação
     st.markdown("""
-    ## 📌 Impacto da Limpeza de Dados na Matriz de Correlação
+        ## 📌 Impacto da Limpeza de Dados na Matriz de Correlação
 
     A limpeza de dados foi fundamental para aprimorar a precisão da análise, especialmente na **matriz de correlação**.  
     Inicialmente, ao comparar o **preço dos celulares dos EUA** com a média do dataset, a correlação era de **0.28**, indicando uma relação fraca e distorcida.  
@@ -99,33 +104,37 @@ Após essa etapa, descobri que:
 Após esse ajuste, a distribuição dos megapixels ficou muito mais coerente!
 """)
 
+# --- 📊 EVOLUÇÃO DOS PREÇOS ---
 st.title("📊 Evolução dos Preços e Análise do Mercado de Smartphones")
 
 image4_path = "reports/distribuicao_preco_medio.png"
 image5_path = "reports/evolucao_samsung.png"
 image6_path = "reports/histograma_preco_medio.png"
 
-# Criar layout de exibição das imagens no Streamlit
+
 st.subheader("📌 Comparação Gráfica")
 
-# Criar duas colunas para as primeiras duas imagens
+
 col1, col2 = st.columns(2)
 
-# Verificar se os arquivos existem antes de exibir
+
 if os.path.exists(image4_path):
     with col1:
-        st.image(Image.open(image4_path).convert("RGB"), caption="📌 Segmentação do Mercado de Smartphones", use_column_width=True)
+        with st.spinner("📷 Carregando imagem de segmentação do mercado..."):
+            st.image(Image.open(image4_path).convert("RGB"), caption="📌 Segmentação do Mercado de Smartphones", use_container_width=True)
 
 if os.path.exists(image5_path):
     with col2:
-        st.image(Image.open(image5_path).convert("RGB"), caption="📈 Evolução dos Preços Médios da Samsung", use_column_width=True)
+        with st.spinner("📷 Carregando imagem da evolução dos preços da Samsung..."):
+            st.image(Image.open(image5_path).convert("RGB"), caption="📈 Evolução dos Preços Médios da Samsung", use_container_width=True)
 
 if os.path.exists(image6_path):
-    st.image(Image.open(image6_path).convert("RGB"), caption="📊 Distribuição dos Preços Médios dos Celulares", width=600)
+    with st.spinner("📷 Carregando imagem da distribuição dos preços médios..."):
+        st.image(Image.open(image6_path).convert("RGB"), caption="📊 Distribuição dos Preços Médios dos Celulares", use_container_width=True)
 
 # Explicação detalhada dos gráficos
 st.markdown("""
-
+            
 ### **📊 Gráfico 1: Segmentação do Mercado de Smartphones**
 O **boxplot** do Gráfico 1 mostra uma clara divisão entre as marcas de smartphones com base no preço médio:
 

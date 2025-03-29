@@ -18,13 +18,13 @@ Fico feliz em compartilhar meu trabalho com você e, se quiser saber mais ou ent
 st.markdown("""
 <div style="display: flex; align-items: center; gap: 20px;">
     <a href="https://github.com/ledrods" target="_blank">
-        <img src="https://img.shields.io/badge/-GitHub-000000?style=flat&logo=github" height="30px" />
+        <img src="https://img.shields.io/badge/-GitHub-000000?style=flat&logo=github" height="30px" use_container_width="true"/>
     </a>
     <a href="https://www.linkedin.com/in/leandrodscesar/" target="_blank">
-        <img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=linkedin" height="30px" />
+        <img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=linkedin" height="30px" use_container_width="true"/>
     </a>
     <a href="mailto:leandro87dev@gmail.com" target="_blank">
-        <img src="https://img.shields.io/badge/-E--mail-0077B5?style=flat&logo=gmail" height="30px" />
+        <img src="https://img.shields.io/badge/-E--mail-0077B5?style=flat&logo=gmail" height="30px" use_container_width="true"/>
     </a>
 </div>
 """, unsafe_allow_html=True)

@@ -3,8 +3,8 @@ import streamlit as st
 import joblib
 
 # Carregar o modelo e o scaler salvos
-modelo = joblib.load('C:/projeto1/analise_exploratoria/modelo/xgboost_model.pkl') 
-scaler = joblib.load('C:/projeto1/analise_exploratoria/modelo/scaler.pkl') 
+modelo = joblib.load('modelo/xgboost_model.pkl') 
+scaler = joblib.load('modelo/scaler.pkl') 
 
 # Definir as colunas de entrada utilizadas no treinamento
 X_columns = ['Mobile Weight', 'RAM', 'Front Camera', 'Back Camera', 

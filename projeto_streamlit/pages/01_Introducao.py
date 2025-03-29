@@ -15,12 +15,9 @@ st.title("📱 Previsão de Preços de Celulares")
 st.write("Bem-vindo ao aplicativo interativo para análise e previsão de preços de celulares.")
 st.markdown("Navegue pelas abas na barra lateral para ver a análise exploratória, entender a escolha do modelo e testar a previsão.")
 
-# --- 📌 CARREGAR DADOS ---
-df = pd.read_csv("C:/projeto1/analise_exploratoria/data/celular2025_clean.csv")
-
 # --- 🖼️ IMAGEM RESUMO DO PROJETO ---
 st.subheader("📌 Resumo Visual do Projeto")
-image_path = "C:/projeto1/analise_exploratoria/reports/resumo.png"
+image_path = "reports/resumo.png"
 
 try:
     image = Image.open(image_path)

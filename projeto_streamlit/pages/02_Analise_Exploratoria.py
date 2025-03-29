@@ -6,7 +6,7 @@ import os
 # Título da aplicação
 st.title("📊 Análise Exploratória de Dados")
 
-df = pd.read_csv("C:/projeto1/analise_exploratoria/data/celular2025_clean.csv") 
+df = pd.read_csv("data/celular2025_clean.csv") 
 st.write("Aqui estão algumas estatísticas do conjunto de dados:")
 st.dataframe(df.describe())
 
@@ -37,8 +37,8 @@ else:
 
     st.markdown("---")
 
-image1_path = "C:/projeto1/analise_exploratoria/reports/matriz_correlacao_antiga.png"
-image2_path = "C:/projeto1/analise_exploratoria/reports/nova_matriz_correlacao.png"
+image1_path = "reports/matriz_correlacao_antiga.png"
+image2_path = "reports/nova_matriz_correlacao.png"
 
 if os.path.exists(image1_path) and os.path.exists(image2_path):
     image1 = Image.open(image1_path).convert("RGB")
@@ -101,9 +101,9 @@ Após esse ajuste, a distribuição dos megapixels ficou muito mais coerente!
 
 st.title("📊 Evolução dos Preços e Análise do Mercado de Smartphones")
 
-image4_path = "C:/projeto1/analise_exploratoria/reports/distribuicao_preco_medio.png"
-image5_path = "C:/projeto1/analise_exploratoria/reports/evolucao_samsung.png"
-image6_path = "C:/projeto1/analise_exploratoria/reports/histograma_preco_medio.png"
+image4_path = "reports/distribuicao_preco_medio.png"
+image5_path = "reports/evolucao_samsung.png"
+image6_path = "reports/histograma_preco_medio.png"
 
 # Criar layout de exibição das imagens no Streamlit
 st.subheader("📌 Comparação Gráfica")

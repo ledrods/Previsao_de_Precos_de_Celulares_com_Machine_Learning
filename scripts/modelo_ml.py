@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, r2_score
 from sklearn.preprocessing import LabelEncoder
 
-df = pd.read_csv("C:/projeto1/analise_exploratoria/data/celular2025_clean.csv")
+df = pd.read_csv("data/celular2025_clean.csv")
 
 df['Company Name'] = LabelEncoder().fit_transform(df['Company Name'])
 
